@@ -1,0 +1,29 @@
+{
+  "name": "RobloxLsp Development",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
+  
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "18"
+    },
+    "ghcr.io/devcontainers/features/git:1": {}
+  },
+  
+  "postCreateCommand": "npm install && npm run build",
+  
+  "forwardPorts": [8080],
+  "portsAttributes": {
+    "8080": {
+      "label": "LSP Server",
+      "onAutoForward": "notify"
+    }
+  },
+  
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.vscode-typescript-next"
+      ]
+    }
+  }
+}
